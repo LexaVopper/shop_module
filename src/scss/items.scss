@@ -1,0 +1,117 @@
+.items {
+  flex: 0 1 75%;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+
+  &__title {
+    text-align: center;
+  }
+  &__list {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+
+    align-items: center;
+    height: 80%;
+  }
+  &__column {
+    margin: 10px;
+    width: 200px;
+    height: 300px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    border-top: 1px solid rgba(0, 0, 0, 0.5);
+    border-left: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 25px;
+    font-size: 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+  }
+  &__avatar {
+    display: block;
+    width: 100px;
+    margin: 20px 0;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+      width: 106%;
+      height: 105%;
+    }
+  }
+  &__info {
+    flex: 0 1 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__name {
+    flex: 0 1 25%;
+    font-size: 20px;
+  }
+  &__prise {
+    margin: 10px 0;
+    font-size: 18px;
+  }
+
+  &-descr {
+    border-top: 1px solid white;
+    flex: 0 1 10%;
+    align-items: center;
+    font-size: 17px;
+    color: white;
+
+    transition: all 0.5s ease-out;
+    &__title {
+      font-size: 19px;
+    }
+    &__info {
+      display: none;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+    &.active {
+      border-top: none;
+      position: absolute;
+      background-color: rgba(167, 145, 145, 1);
+      backdrop-filter: blur(12px);
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      padding-top: 20px;
+      .items-descr__title {
+        font-weight: 700;
+        color: black;
+      }
+      .items-descr__info {
+        color: black;
+        font-size: 19px;
+        font-weight: 700;
+        line-height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+      }
+    }
+  }
+
+  &__pagination {
+    position: absolute;
+    top: 80%;
+    left: 40%;
+    a {
+      color: #fff !important;
+    }
+  }
+}
