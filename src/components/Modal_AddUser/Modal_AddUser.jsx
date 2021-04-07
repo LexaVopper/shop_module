@@ -22,7 +22,7 @@ function Modal_AddUser() {
       imageUrl: URL.createObjectURL(data.avatar[0]),
       name: data.name,
       description: data.descr,
-      price: Number(data.price),
+      price: +data.price,
     };
     dispatch(addUser(newUser));
   };
@@ -36,11 +36,17 @@ function Modal_AddUser() {
           <input name='avatar' type='file' ref={register({ required: false })} />
 
           <p>Название товара</p>
-          <input name='name' defaultValue='Стремянка' ref={register({ required: true })} />
+          <input name='name' defaultValue='Неизвестный объект' ref={register({ required: true })} />
 
           <p>Цена</p>
-          <input name='price' ref={register({ required: true, pattern: /^\d+$/ })} />
-          {errors.exampleRequired && <span>Необходимо указать цену</span>}
+          <input
+            name='price'
+            ref={register({
+              required: 'Укажите цену цифрами',
+              pattern: { value: /^\d+$/, message: 'Это поле принимает только цифры' },
+            })}
+          />
+          {errors?.price?.message}
 
           <p>Описание</p>
           <textarea name='descr' defaultValue='Описание отсутствует(' type='text' ref={register} />
