@@ -10,8 +10,12 @@ const users = (state = initialState, action) => {
         ...state,
         users: action.payload,
       };
+
     case 'ADD_USER':
-      return {};
+      return {
+        ...state,
+        users: [...state.users, action.payload],
+      };
 
     default:
       return state;

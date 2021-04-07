@@ -15,3 +15,8 @@ export const setPage = (page) => ({
   type: 'SET_PAGE',
   payload: page,
 });
+
+export const addUser = (users) => ({
+  type: 'ADD_USER',
+  payload: users,
+});

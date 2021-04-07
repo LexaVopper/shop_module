@@ -1,18 +1,23 @@
 import React from 'react';
 
-import { makeStyles } from '@material-ui/core/styles';
 import { setPage } from '../Items/actions';
 import { useDispatch } from 'react-redux';
 import { setFilter } from './actions';
-//Slider
+//Slider и Button
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 //Router
 import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
     width: '60%',
+  },
+  button: {
+    marginTop: '20px',
+    padding: '0',
   },
 });
 
@@ -76,9 +81,11 @@ const Filter = React.memo(function Filter() {
           />
         </div>
       </div>
-      <button>
-        <Link to={'/addUser'}>Open Modal</Link>
-      </button>
+      <Button className={classes.button} variant='contained' color='secondary'>
+        <Link to={'/addUser'} className='open_modal'>
+          Добавить товар
+        </Link>
+      </Button>
     </div>
   );
 });

@@ -1,8 +1,46 @@
 .modal__block {
+  background-color: rgba(167, 145, 145, 1);
+  backdrop-filter: blur(12px);
   .modal__content {
     color: white;
+    width: 400px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
 
-    width: 300px;
-    height: 300px;
+    span {
+      text-align: right;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    form {
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+
+      p {
+        margin: 12px 0 6px 0;
+        letter-spacing: 2px;
+      }
+      span {
+        font-size: 14px;
+        padding-bottom: 0;
+      }
+
+      input {
+        cursor: pointer;
+      }
+
+      textarea {
+        max-height: 50px;
+        max-width: 360px;
+        resize: none;
+      }
+
+      .submit {
+        margin-top: 10px;
+      }
+    }
   }
 }
