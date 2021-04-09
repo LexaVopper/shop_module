@@ -20,7 +20,7 @@ const InfoCard = React.memo(function InfoCard({ id, description, name, price, im
         <div className='items__prise'>Цена: {price}</div>
       </div>
 
-      <div onClick={() => toggleActive()} className={cn('items-descr', { active: state == true })}>
+      <div onClick={() => toggleActive()} className={cn('items-descr', { active: state === true })}>
         <div className='items-descr__title'>Описание</div>
         <div className='items-descr__info'>
           <h1>Id: {id}</h1>

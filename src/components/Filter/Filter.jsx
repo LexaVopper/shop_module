@@ -9,7 +9,7 @@ import Slider from '@material-ui/core/Slider';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 //Router
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -17,7 +17,6 @@ const useStyles = makeStyles({
   },
   button: {
     marginTop: '20px',
-    padding: '0',
   },
 });
 
@@ -28,6 +27,7 @@ function valuetext(value) {
 const Filter = React.memo(function Filter() {
   const dispatch = useDispatch();
   const classes = useStyles();
+  const history = useHistory();
 
   const [value, setValue] = React.useState([0, 1500]);
 
@@ -37,6 +37,7 @@ const Filter = React.memo(function Filter() {
 
   function delay(callback, ms) {
     var timer = 0;
+
     return function () {
       var context = this,
         args = arguments;
@@ -54,6 +55,10 @@ const Filter = React.memo(function Filter() {
 
   const input1Change = (e) => {
     a(e.target.value);
+  };
+
+  const goTo = () => {
+    history.push('/addUser');
   };
 
   return (
@@ -81,10 +86,8 @@ const Filter = React.memo(function Filter() {
           />
         </div>
       </div>
-      <Button className={classes.button} variant='contained' color='secondary'>
-        <Link to={'/addUser'} className='open_modal'>
-          Добавить товар
-        </Link>
+      <Button onClick={goTo} className={classes.button} variant='contained' color='secondary'>
+        Добавить товар
       </Button>
     </div>
   );
